@@ -63,7 +63,7 @@ export default function AdminNavbar() {
                   <img className='w-10 h-10 sm:w-14 sm:h-14 rounded-full p-2' src="https://media-hosting.imagekit.io//54e3f9080cac4431/images.png?Expires=1833774695&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=VB60js03kqePpLnT3dMH4e7OgppubyPrlBBeCTJfe3w9gKMEO3R6y5CqgdrIJ-G1QfTs2GDQtbMSpH7f0j7i3iZeRCG5aG7gdeOUEGZ5zEtZ7dT3WwiZdvUStk1P5GHUFF3Fr9Rz6WGSyK2-7QYdsDJokQD4yJIsdzXCOxPiuM93SkHPNdpwc4xfY08RYnoicsz1guGf-V-piIHF3vGzd58qCk05FDRxEk6MFvFvwicBdvIcS02wDWuq3-SY4opmjX8x9fCLVChlkoEhHLHEsrPVjqidOkvSr5k7DzkAdbDVmp6BaH7AntiATZzRIUXVI3px4RMFGXsKwy9cx45WEg__" alt="CMR" />
                 </div>
                 <span className="text-xl sm:text-2xl font-bold text-purple-400 hover:text-purple-300">
-                  {categoryName} CMRTC Cafeteria
+                  CMRTC Cafeteria
                 </span>
               </Link>
             </div>
