@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import toast from 'react-hot-toast';
@@ -9,7 +9,7 @@ import Script from 'next/script';
 // Razorpay credentials
 const RAZORPAY_KEY_ID = 'rzp_test_c7G4chBa5Iqwf6';
 
-export default function Payment() {
+function PaymentWithSearchParams() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isProcessing, setIsProcessing] = useState(false);
@@ -525,4 +525,16 @@ export default function Payment() {
       </div>
     </div>
   );
-} 
+}
+
+export default function Payment() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-lg text-gray-400">Loading payment details...</div>
+      </div>
+    }>
+      <PaymentWithSearchParams />
+    </Suspense>
+  );
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import toast from 'react-hot-toast';
@@ -12,15 +12,13 @@ const orderStatuses = {
   completed: { label: 'Completed', color: 'bg-gray-900/50 text-gray-200 border-gray-700' },
 };
 
-export default function TrackOrder() {
+function TrackOrderSearchParams() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [orders, setOrders] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const [order, setOrder] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   // Function to get display token
   const getDisplayToken = (tokenId) => {
@@ -409,4 +407,16 @@ export default function TrackOrder() {
       </div>
     </div>
   );
-} 
+}
+
+export default function TrackOrder() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-lg text-gray-400">Loading order details...</div>
+      </div>
+    }>
+      <TrackOrderSearchParams />
+    </Suspense>
+  )
+}
