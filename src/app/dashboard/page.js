@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('current');
-  const [orders, setOrders] = useState(sampleOrders);
+  const [orders, setOrders] = useState([]);
 
   const currentOrders = orders.filter(order => 
     ['pending', 'preparing', 'ready'].includes(order.status)
